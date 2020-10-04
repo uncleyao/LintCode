@@ -12,6 +12,8 @@ interface InterfaceQueue {
 
 class Node {
     public int val;
+    // next 是下一个进的
+    //prev是上一个进
     public Node next, prev;
     public Node(int _val) {
         val = _val;
@@ -38,6 +40,7 @@ public class MyQueue implements InterfaceQueue {
            first = last;
        }
        else {
+
            Node node = new Node(val);
            last.next = node;
            node.prev = last;

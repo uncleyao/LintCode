@@ -2,7 +2,7 @@
 Given an integer array, sort it in ascending order in place. Use quick sort, merge sort, heap sort or any O(nlogn) algorithm.
 */
 
-public class Solution {
+public class SolutionMerge {
     /**
      * @param A: an integer array
      * @return: nothing
@@ -41,5 +41,46 @@ public class Solution {
             A[left+k] = temp[k];
         }
         
+    }
+}
+
+public class SolutionQuick {
+    /**
+     * @param A: an integer array
+     * @return: nothing
+     */
+    public void sortIntegers2(int[] A) {
+        // write your code here
+        quickSort(A, 0, A.length-1);
+        
+    }
+    
+    private void quickSort(int[] A, int start, int end) {
+        if (start >=end) {
+            return;
+        }
+        int i = start;
+        int j = end;
+        int pivot = A[start + (end-start)/2];
+        while (i <= j){
+            while (i<=j && A[i] < pivot) {
+                i++;
+            }
+            while (i<=j && A[j]> pivot) {
+                j--;
+            }
+            if (i<=j) {
+            swap(A, i++,j--);
+            }
+        }
+        quickSort(A, start, j);
+        quickSort(A, i, end);
+        }
+    
+    
+    private void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }

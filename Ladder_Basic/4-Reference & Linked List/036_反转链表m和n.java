@@ -1,32 +1,6 @@
 /*
-Reverse a linked list from position m to n.
-
-Example
-Example 1:
-
-Input: 1->2->3->4->5->NULL, m = 2 and n = 4, 
-Output: 1->4->3->2->5->NULL.
-Example 2:
-
-Input: 1->2->3->4->NULL, m = 2 and n = 3, 
-Output: 1->3->2->4->NULL.
-Challenge
-Reverse it in-place and in one-pass
-
-Notice
+反转链表m和n
 */
-
-/**
- * Definition for ListNode
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
- */
 
 public class Solution {
     /**

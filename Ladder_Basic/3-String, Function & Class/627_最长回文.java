@@ -16,7 +16,7 @@ public class Solution {
         return s.length();
         */
         
-        int result = 0,oddPoint = 0;
+        int result = 0, oddPoint = 0;
         HashMap<Character, Integer> wordD = new HashMap<Character, Integer>();
         for (char c: s.toCharArray()){
             if (wordD.containsKey(c)){

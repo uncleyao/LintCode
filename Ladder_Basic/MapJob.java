@@ -13,14 +13,15 @@ import java.util.TreeMap;
 public class mapJob extends Mapper<LongWritable, Text, DoubleWritable,DoubleWritable>
 {
     private TreeMap<Double, Double> tree = new TreeMap<>();
+    // 内部对key排序
 
     protected void map(LongWritable key, Text value ,Context context)
             throws IOException, InterruptedException
     {
         Configuration conf = context.getConfiguration();
+        // 传入top k，也就是1000
         String ktext = conf.get("k");
         int k = Integer.valueOf(ktext);
-
 
         String line = value.toString();
         if(line.length() > 0)
@@ -35,6 +36,7 @@ public class mapJob extends Mapper<LongWritable, Text, DoubleWritable,DoubleWrit
             }
         }
     }
+    // MR有局限性 map()只能处理一行，reduce()只能处理一组，但如果想只输出一部分结果就用cleanup
 
     protected void cleanup(Context context)
             throws IOException, InterruptedException

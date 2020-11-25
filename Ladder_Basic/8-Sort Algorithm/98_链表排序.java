@@ -6,38 +6,20 @@ Example 1:
 
 Input:  1->3->2->null
 Output:  1->2->3->null
-Example 2:
-
-Input: 1->7->2->6->null
-Output: 1->2->6->7->null
-
 */
-
-/**
- * Definition for ListNode
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
- */
 
 public class Solution {
     /**
-     * @param head: The head of linked list.
-     * @return: You should return the head of the sorted linked list, using constant space complexity.
+     * @param head: 使用归并思路
      */
     public ListNode sortList(ListNode head) {
         // write your code here
         if (head==null || head.next==null) {
             return head;
         }
-        ListNode mid = findMid(head);
+        ListNode mid = findMid(head); // 找到中间节点
         ListNode right = sortList(mid.next);
-        mid.next = null;
+        mid.next = null; // 保证只sort左边
         ListNode left = sortList(head);
         return mergeTwoLists(left, right);
         
@@ -52,6 +34,7 @@ public class Solution {
         }
         return slow;
     }
+    
     
     
     
